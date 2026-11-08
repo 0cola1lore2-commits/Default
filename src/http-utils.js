@@ -1,5 +1,7 @@
 // Ajutoare HTTP: răspunsuri JSON, citirea corpului cererii, antete de securitate, verificare de origine.
 
+import path from 'node:path';
+
 export const SECURITY_HEADERS = Object.freeze({
   // Totul vine de pe același domeniu: fără scripturi, stiluri sau fonturi externe.
   'Content-Security-Policy':
@@ -100,12 +102,22 @@ export function isSameOrigin(req, { extraHosts = [] } = {}) {
   }
 }
 
-/** Separă calea de query string, fără a folosi `new URL` (care ar interpreta `//host` ca adresă). */
+/**
+ * Separă calea de query string, fără a folosi `new URL` (care ar interpreta `//host` ca adresă).
+ * `decoded` este calea după decodarea %-escape-urilor și normalizarea „./” și „../” — exact ce vede
+ * serverul de fișiere. Deciziile de acces (ex. /admin) se iau pe `decoded`, nu pe calea brută.
+ */
 export function parseTarget(rawUrl) {
   if (typeof rawUrl !== 'string' || !rawUrl.startsWith('/') || rawUrl.startsWith('//')) {
     throw new HttpError(400, 'bad_request', 'Cerere invalidă.');
   }
   const q = rawUrl.indexOf('?');
   const pathname = q === -1 ? rawUrl : rawUrl.slice(0, q);
-  return { pathname, query: new URLSearchParams(q === -1 ? '' : rawUrl.slice(q + 1)) };
+  let decoded;
+  try {
+    decoded = path.posix.normalize(decodeURIComponent(pathname));
+  } catch {
+    throw new HttpError(400, 'bad_request', 'Cerere invalidă.');
+  }
+  return { pathname, decoded, query: new URLSearchParams(q === -1 ? '' : rawUrl.slice(q + 1)) };
 }

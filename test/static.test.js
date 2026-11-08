@@ -122,3 +122,30 @@ test('fișiere statice: fișiere ascunse, partials și link-uri simbolice care i
     assert.ok(!(await res.text()).includes('SECRET'), url);
   }
 });
+
+test('fișiere statice: directoarele excluse nu se servesc niciodată, nici prin link simbolic', async (t) => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'cofetarie-exclude-'));
+  t.after(() => rm(root, { recursive: true, force: true }));
+  const pub = path.join(root, 'public');
+  await mkdir(path.join(pub, 'admin'), { recursive: true });
+  await writeFile(path.join(pub, 'admin', 'index.html'), 'PANOU');
+  await writeFile(path.join(pub, 'admin', 'secret.js'), 'PANOU');
+  await writeFile(path.join(pub, 'index.html'), 'public');
+  await symlink(path.join(pub, 'admin'), path.join(pub, 'alias'));
+  const serve = createStaticHandler({ mounts: [{ prefix: '/', dir: pub, exclude: [path.join(pub, 'admin')] }], render: async (f) => (await import('node:fs/promises')).readFile(f, 'utf8') });
+  const server = http.createServer(async (req, res) => {
+    if (!(await serve(req, res, req.url.split('?')[0]))) {
+      res.writeHead(404);
+      res.end('nu');
+    }
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  t.after(() => new Promise((resolve) => { server.close(resolve); server.closeAllConnections(); }));
+  const base = `http://127.0.0.1:${server.address().port}`;
+  assert.equal(await (await fetch(`${base}/`)).text(), 'public');
+  for (const url of ['/admin', '/admin/', '/admin/index.html', '/admin/secret.js', '/alias/index.html', '/alias/secret.js', '/alias']) {
+    const res = await fetch(`${base}${url}`);
+    assert.equal(res.status, 404, url);
+    assert.ok(!(await res.text()).includes('PANOU'), url);
+  }
+});

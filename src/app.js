@@ -71,14 +71,19 @@ export async function createApp({
   const loginLimiter = createRateLimiter(loginLimit);
 
   const publicDir = path.join(rootDir, 'public');
+  const adminDir = path.join(publicDir, 'admin');
   const renderer = createRenderer({ publicDir, context: buildSiteContext(shop, { publicUrl }), cache: production });
+  const render = (file) => renderer.render(file);
+  // Fișierele panoului de administrare se servesc DOAR printr-un handler separat, după autentificare;
+  // handler-ul public nu le poate servi în niciun fel (nici prin %-escape-uri, „./”, majuscule sau link-uri).
   const serveStatic = createStaticHandler({
     mounts: [
       { prefix: '/shared/', dir: path.join(rootDir, 'src', 'shared'), only: ['.js'] },
-      { prefix: '/', dir: publicDir },
+      { prefix: '/', dir: publicDir, exclude: [adminDir] },
     ],
-    render: (file) => renderer.render(file),
+    render,
   });
+  const serveAdminStatic = createStaticHandler({ mounts: [{ prefix: '/admin/', dir: adminDir }], render });
 
   const catalogJson = JSON.stringify(publicCatalog(catalog));
   const catalogEtag = etagOf(catalogJson);
@@ -289,8 +294,14 @@ export async function createApp({
         return;
       }
 
-      if (pathname === '/admin' || pathname.startsWith('/admin/')) {
+      // Poarta se aplică pe calea decodată și normalizată (cea pe care o vede serverul de fișiere), fără
+      // să țină cont de majuscule: /%61dmin, /./admin, /ADMIN/ și /admin%2findex.html cer toate parolă.
+      const guarded = target.decoded.toLowerCase();
+      if (guarded === '/admin' || guarded.startsWith('/admin/')) {
         requireAdmin(req);
+        const served = await serveAdminStatic(req, res, guarded === '/admin' ? '/admin/' : target.decoded);
+        if (!served) await notFound(req, res);
+        return;
       }
 
       if (!(await serveStatic(req, res, pathname))) await notFound(req, res);

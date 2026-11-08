@@ -218,6 +218,31 @@ test('administrare: vizitele fără credențiale nu consumă limita de încercă
   assert.equal((await fetch(`${base}/api/admin/orders`, { headers: adminAuth })).status, 200);
 });
 
+test('administrare: autentificarea nu se poate ocoli prin variante ale căii', async (t) => {
+  const { base, stop } = await startTestApp();
+  t.after(stop);
+  const variants = [
+    '/admin', '/admin/', '/admin/index.html', '/admin/admin.js',
+    '/%61dmin', '/%41dmin/', '/%61dmin/admin.js', '/ADMIN', '/Admin/', '/ADMIN/ADMIN.JS',
+    '/./admin/', '/admin/./index.html', '/admin/../admin/index.html', '/assets/../admin/admin.js', '/%2e/admin/',
+    '/admin%2findex.html', '/admin%2fadmin.js', '/%2e%2e/admin/index.html',
+  ];
+  for (const v of variants) {
+    const res = await rawGet(base, v);
+    assert.equal(res.status, 401, `${v} → ${res.status}`);
+    assert.ok(!res.body.includes('Comenzi'), `${v}: conținut scurs`);
+  }
+  // cu parolă corectă, panoul se servește doar la adresele canonice
+  const ok = await rawGet(base, '/admin', adminAuth);
+  assert.equal(ok.status, 200);
+  assert.match(ok.body, /Comenzi — Administrare/);
+  assert.match((await rawGet(base, '/%61dmin/admin.js', adminAuth)).headers['content-type'], /javascript/);
+  assert.equal((await rawGet(base, '/ADMIN/', adminAuth)).status, 404);
+  assert.equal((await rawGet(base, '/admin/nu-exista.js', adminAuth)).status, 404);
+  assert.equal((await rawGet(base, '/administrare', adminAuth)).status, 404, 'doar /admin și /admin/… intră în panou');
+  assert.equal((await rawGet(base, '/administrare')).status, 404, 'fără parolă, un prefix asemănător nu cere autentificare');
+});
+
 test('fișiere statice: nu se poate ieși din directorul public', async (t) => {
   const { base, stop } = await startTestApp();
   t.after(stop);

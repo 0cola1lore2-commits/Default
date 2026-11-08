@@ -32,7 +32,9 @@ function cacheControlFor(ext) {
 }
 
 /**
- * @param mounts  [{ prefix: '/shared/', dir, only: ['.js'] }, { prefix: '/', dir }] — primul care se potrivește câștigă
+ * @param mounts  [{ prefix: '/shared/', dir, only: ['.js'] }, { prefix: '/', dir, exclude: [adminDir] }] — primul care
+ *                se potrivește câștigă. `exclude` = directoare care nu se servesc NICIODATĂ din acest mount, oricum ar
+ *                fi scrisă calea (se verifică pe calea reală, deci și majuscule, „..” sau link-uri simbolice).
  * @param render  async (fișier .html) => text HTML (șabloane completate)
  */
 export function createStaticHandler({ mounts, render }) {
@@ -40,6 +42,17 @@ export function createStaticHandler({ mounts, render }) {
   async function realRoot(dir) {
     if (!realRoots.has(dir)) realRoots.set(dir, await realpath(dir));
     return realRoots.get(dir);
+  }
+  const inside = (file, dir) => file === dir || file.startsWith(dir + path.sep);
+  async function excluded(mount, real) {
+    for (const dir of mount.exclude ?? []) {
+      try {
+        if (inside(real, await realRoot(dir))) return true;
+      } catch {
+        // directorul exclus nu există: nimic de ascuns
+      }
+    }
+    return false;
   }
 
   async function isFile(abs) {
@@ -73,6 +86,7 @@ export function createStaticHandler({ mounts, render }) {
         if (!(await isFile(abs))) continue;
         const real = await realpath(abs);
         if (!real.startsWith(root + path.sep)) continue; // link simbolic care iese din rădăcină
+        if (await excluded(mount, real)) continue;
         if (mount.only && !mount.only.includes(path.extname(real).toLowerCase())) continue;
         return real;
       }
