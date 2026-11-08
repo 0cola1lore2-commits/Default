@@ -4,7 +4,7 @@
 import { ApiError, getCatalog, submitOrder } from './api.js';
 import { cart } from './cart.js';
 import { bindLineControls, linesHtml, resolveLines, subtotalOf, totalsHtml } from './cart-view.js';
-import { $, $$, html, render } from './dom.js';
+import { $, html, render } from './dom.js';
 import { initLayout, toast } from './layout.js';
 import { formatDateLong, formatLeadTime } from '/shared/format.js';
 import { formatPrice } from '/shared/money.js';

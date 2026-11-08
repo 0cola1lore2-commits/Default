@@ -511,7 +511,7 @@ progress::-moz-progress-bar { background: var(--pistachio); }
 .thanks__facts dt { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); }
 .thanks__facts dd { overflow-wrap: anywhere; white-space: pre-line; }
 .receipt { display: grid; border-top: 1px solid var(--line); }
-.receipt li { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.receipt li { display: grid; grid-template-columns: 2.6em 1fr auto; gap: 8px; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .receipt__qty { font-weight: 700; font-variant-numeric: tabular-nums; }
 .receipt__name small { display: block; color: var(--ink-soft); font-size: 0.9rem; }
 .receipt__text { font-style: italic; color: var(--berry-dark) !important; overflow-wrap: anywhere; }

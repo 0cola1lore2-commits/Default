@@ -1,6 +1,6 @@
 // Panoul de administrare a comenzilor. Tot textul venit de la clienți trece prin `html` (escape automat).
 
-import { $, $$, esc, fold, html, icon, raw, render } from '/assets/js/dom.js';
+import { $, fold, html, icon, render } from '/assets/js/dom.js';
 import { formatDateLong } from '/shared/format.js';
 import { FULFILMENT_METHODS, ORDER_STATUSES } from '/shared/labels.js';
 import { formatPrice } from '/shared/money.js';

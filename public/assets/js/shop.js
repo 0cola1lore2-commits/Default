@@ -2,7 +2,7 @@
 
 import { getCatalog } from './api.js';
 import { cart } from './cart.js';
-import { $, $$, clamp, debounce, fold, html, icon, render } from './dom.js';
+import { $, clamp, debounce, fold, html, icon, render } from './dom.js';
 import { initLayout, openCart, toast } from './layout.js';
 import { formatLeadTime } from '/shared/format.js';
 import { formatPrice } from '/shared/money.js';
