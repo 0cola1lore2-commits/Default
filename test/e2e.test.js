@@ -395,6 +395,45 @@ test('administrare: comanda apare, textul clientului este inofensiv, statusul se
   assert.ok(adminAuth.Authorization);
 });
 
+test('stocare blocată de browser: coșul și confirmarea rămân între pagini', { skip }, async (t) => {
+  const app = await startTestApp();
+  t.after(app.stop);
+  const context = await browser.newContext({ viewport: { width: 390, height: 780 }, locale: 'ro-RO', timezoneId: 'Europe/Bucharest' });
+  t.after(() => context.close());
+  // ca într-un browser sau WebView care refuză accesul la stocare
+  await context.addInitScript(() => {
+    for (const name of ['localStorage', 'sessionStorage']) {
+      Object.defineProperty(window, name, { configurable: true, get() { throw new DOMException('Access is denied for this document.', 'SecurityError'); } });
+    }
+  });
+  const page = await context.newPage();
+  await page.clock.setFixedTime(NOW);
+  const problems = [];
+  page.on('pageerror', (e) => problems.push(`pageerror: ${e.message}`));
+  await page.goto(`${app.base}/`);
+  assert.equal(await page.evaluate(() => { try { return typeof localStorage; } catch { return 'blocat'; } }), 'blocat');
+  await page.waitForSelector('.card-product:not(.skeleton)');
+  await page.click('[data-quick-add="amandina"]');
+  await dismissToasts(page);
+  await page.click('[data-quick-add="amandina"]');
+  assert.equal(await page.textContent('#cart-count'), '2');
+
+  await page.click('#cart-button');
+  await page.click('#cart-foot a[href="/comanda"]'); // navigare completă către altă pagină
+  await page.waitForSelector('#checkout-grid:not([hidden])');
+  assert.match(await page.textContent('#summary-totals'), /28,00 lei/, 'coșul a ajuns pe pagina de comandă');
+  await fillContact(page);
+  await page.selectOption('#f-slot', '16:00-18:00');
+  await page.check('input[name="consent"]');
+  await page.click('#submit-btn');
+  await page.waitForURL('**/multumim');
+  assert.equal(await page.textContent('#thanks-number'), 'CV-20261108-001', 'confirmarea ajunge pe ultima pagină');
+  assert.equal(await page.locator('#cart-count').isHidden(), true, 'coșul s-a golit');
+  await page.reload();
+  assert.equal(await page.textContent('#thanks-number'), 'CV-20261108-001');
+  assert.deepEqual(problems, []);
+});
+
 test('pe telefon: fără derulare orizontală și meniul funcționează', { skip }, async (t) => {
   const app = await startTestApp();
   t.after(app.stop);

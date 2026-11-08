@@ -2,6 +2,7 @@
 
 import { $, html, render } from './dom.js';
 import { initLayout } from './layout.js';
+import { readStored } from './storage.js';
 import { formatDateLong } from '/shared/format.js';
 import { formatPrice } from '/shared/money.js';
 import { slotLabel } from '/shared/schedule.js';
@@ -12,7 +13,7 @@ initLayout();
 
 function readOrder() {
   try {
-    const order = JSON.parse(sessionStorage.getItem('cofetarie.lastOrder'));
+    const order = JSON.parse(readStored('session', 'cofetarie.lastOrder'));
     const valid =
       order && typeof order.number === 'string' && Array.isArray(order.lines) && order.totals && order.fulfilment && order.customer;
     return valid ? order : null;

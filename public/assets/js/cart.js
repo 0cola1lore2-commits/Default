@@ -1,6 +1,7 @@
 // Coșul de cumpărături, salvat în localStorage. Reține doar ce a ales clientul (produs, variantă, cantitate,
 // mesaj) — niciodată prețuri sau nume: acestea se iau mereu din catalog.
 
+import { readStored, writeStored } from './storage.js';
 import { charLength } from '/shared/text.js';
 
 const KEY = 'cofetarie.cart.v1';
@@ -19,7 +20,7 @@ const normalize = (i) => ({
 
 function load() {
   try {
-    const parsed = JSON.parse(localStorage.getItem(KEY) ?? '[]');
+    const parsed = JSON.parse(readStored('local', KEY) ?? '[]');
     return Array.isArray(parsed) ? parsed.filter(isValid).slice(0, MAX_LINES).map(normalize) : [];
   } catch {
     return []; // localStorage indisponibil sau conținut stricat: pornim cu un coș gol
@@ -31,11 +32,7 @@ let items = load();
 const keyOf = (i) => `${i.productId}|${i.variantId}|${i.customText}`;
 
 function commit() {
-  try {
-    localStorage.setItem(KEY, JSON.stringify(items));
-  } catch {
-    // modul privat / spațiu plin: coșul rămâne doar în memorie, pe această pagină
-  }
+  writeStored('local', KEY, JSON.stringify(items)); // dacă stocarea e blocată, merge prin window.name
   for (const fn of listeners) fn();
 }
 

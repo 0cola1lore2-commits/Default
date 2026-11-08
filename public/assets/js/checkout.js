@@ -3,6 +3,7 @@
 
 import { ApiError, getCatalog, submitOrder } from './api.js';
 import { cart } from './cart.js';
+import { writeStored } from './storage.js';
 import { bindLineControls, linesHtml, resolveLines, subtotalOf, totalsHtml } from './cart-view.js';
 import { $, html, render } from './dom.js';
 import { initLayout, toast } from './layout.js';
@@ -257,11 +258,7 @@ async function onSubmit(event) {
   setSubmitting(true);
   try {
     const order = await submitOrder({ ...collect(), expectedTotal: result.value.totals.total });
-    try {
-      sessionStorage.setItem('cofetarie.lastOrder', JSON.stringify(order));
-    } catch {
-      // fără sessionStorage pagina de confirmare afișează un mesaj general
-    }
+    writeStored('session', 'cofetarie.lastOrder', JSON.stringify(order));
     leaving = true;
     cart.clear();
     location.assign('/multumim');
