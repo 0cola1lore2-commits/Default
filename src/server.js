@@ -9,6 +9,14 @@ import { ConfigError, loadCatalog } from './catalog.js';
 import { parseWebhookUrl } from './notify.js';
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+
+// Citește .env din rădăcina proiectului, dacă există. Variabilele deja setate în mediu au prioritate.
+// (Nu folosim `node --env-file`: în modul --watch, un .env lipsă ar opri serverul.)
+try {
+  process.loadEnvFile(path.join(rootDir, '.env'));
+} catch (err) {
+  if (err.code !== 'ENOENT') throw err;
+}
 const env = process.env;
 
 function fail(message) {
