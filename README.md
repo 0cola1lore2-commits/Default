@@ -30,6 +30,13 @@ npm start
 `npm run dev` repornește serverul automat când modifici codul sau fișierele din `config/`. `npm test` rulează testele.
 Fișierul `.env` se citește din rădăcina proiectului (dacă există); o variabilă setată deja în mediu are prioritate.
 
+### Testare pe telefon
+
+Dacă rulezi proiectul pe calculatorul tău, îl poți încerca de pe telefon, **în aceeași rețea Wi‑Fi**: adaugă `HOST=0.0.0.0`
+în `.env`, pornește cu `npm start`, află adresa IP a calculatorului (de ex. `192.168.1.20`) și deschide pe telefon
+`http://192.168.1.20:3000`. Este HTTP simplu, bun pentru testare în rețeaua de acasă — nu expune așa serverul pe internet
+(pentru acces public vezi [Publicare](#publicare-deploy)).
+
 ## Ce poți personaliza (fără să programezi)
 
 | Ce | Unde |
@@ -134,6 +141,7 @@ Merge pe orice găzduire care rulează Node.js ≥ 22.9 (un VPS, Render, Railway
 - **plata online cu cardul** (Netopia, Stripe…) — comenzile se plătesc la primire
 - **email / SMS către client** — confirmarea apare pe ecran; tu poți suna clientul. Notificarea către tine merge prin webhook
 - conturi de client, istoric de comenzi, stocuri, mai multe locații sau mai multe limbi
+- încadrarea magazinului în alt site (iframe): este blocată intenționat; dacă ai nevoie, modifică `frame-ancestors` și `X-Frame-Options` în `src/http-utils.js`
 - protecție anti-spam avansată (CAPTCHA) — există doar limitarea pe IP; dacă primești comenzi false, adaugă una (de ex. Cloudflare Turnstile)
 - `sitemap.xml`; scalare pe mai multe instanțe (comenzile stau într-un fișier local)
 
