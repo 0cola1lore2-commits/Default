@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  {{> head}}
+  <title>Politica de confidențialitate — {{shop.name}}</title>
+  <meta name="description" content="Cum prelucrăm datele personale pe care ni le transmiți când comanzi de la {{shop.name}}.">
+</head>
+<body class="page-legal">
+  {{> icons}}
+  {{> header}}
+  <main id="continut" class="container prose" tabindex="-1">
+    <h1>Politica de confidențialitate</h1>
+
+    <h2>1. Operatorul datelor</h2>
+    <p>Operatorul datelor tale personale este <strong>{{shop.companyName}}</strong>, CUI {{shop.cui}}, {{shop.regCom}}, cu sediul social în {{shop.registeredOffice}}. Contact pentru orice întrebare despre date: <a href="mailto:{{shop.email}}">{{shop.email}}</a>.</p>
+
+    <h2>2. Ce date prelucrăm</h2>
+    <p>Când plasezi o comandă, ne transmiți: numele, numărul de telefon, adresa de email (opțional), adresa de livrare (doar dacă alegi livrarea), conținutul comenzii, data și intervalul ales și eventualele observații. Nu îți cerem să-ți faci cont și nu colectăm date pentru reclame.</p>
+
+    <h2>3. De ce și pe ce bază</h2>
+    <ul>
+      <li>Pentru a prelua, pregăti, livra sau preda comanda — executarea contractului (art. 6 alin. 1 lit. b din GDPR).</li>
+      <li>Pentru a ne respecta obligațiile legale, în special cele contabile și fiscale (art. 6 alin. 1 lit. c din GDPR).</li>
+      <li>Pentru a răspunde întrebărilor și reclamațiilor tale (interes legitim, art. 6 alin. 1 lit. f din GDPR).</li>
+    </ul>
+
+    <h2>4. Cât timp păstrăm datele</h2>
+    <p>Păstrăm datele comenzii cât timp este necesar pentru executarea ei și, ulterior, pe durata impusă de legislația contabilă și fiscală aplicabilă. După aceea, datele se șterg sau se anonimizează.</p>
+
+    <h2>5. Cui le comunicăm</h2>
+    <p>Doar persoanelor care au nevoie de ele pentru a-ți onora comanda: echipa noastră, furnizorul de găzduire al site-ului, contabilul nostru și, dacă este cazul, serviciul de curierat. Nu vindem și nu închiriem datele tale.</p>
+
+    <h2>6. Stocare în browser</h2>
+    <p>Site-ul nu folosește cookie-uri de marketing sau de analiză. Folosim spațiul de stocare local al browserului (localStorage) pentru a ține minte produsele din coș și sessionStorage pentru a afișa confirmarea comenzii. Acestea sunt necesare funcționării site-ului și rămân pe dispozitivul tău; le poți șterge oricând din setările browserului.</p>
+
+    <h2>7. Drepturile tale</h2>
+    <p>Ai dreptul de acces, rectificare, ștergere, restricționare a prelucrării, portabilitate și opoziție. Pentru a le exercita, scrie-ne la <a href="mailto:{{shop.email}}">{{shop.email}}</a>. Ai, de asemenea, dreptul de a depune o plângere la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (<a href="https://www.dataprotection.ro" target="_blank" rel="noopener noreferrer">dataprotection.ro</a>).</p>
+  </main>
+  {{> footer}}
+  {{> toasts}}
+  <script type="module" src="/assets/js/layout-only.js"></script>
+</body>
+</html>

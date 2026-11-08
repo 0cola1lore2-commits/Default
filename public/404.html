@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  {{> head}}
+  <title>Pagina nu a fost găsită — {{shop.name}}</title>
+  <meta name="robots" content="noindex">
+</head>
+<body>
+  {{> icons}}
+  {{> header}}
+  <main id="continut" class="container empty empty--page" tabindex="-1">
+    <p class="eyebrow">Eroare 404</p>
+    <h1>Pagina nu a fost găsită</h1>
+    <p>Poate a fost mutată sau adresa e greșită. Hai înapoi la dulciuri!</p>
+    <a class="btn btn--primary" href="/">Prima pagină</a>
+  </main>
+  {{> footer}}
+  <script type="module" src="/assets/js/layout-only.js"></script>
+</body>
+</html>

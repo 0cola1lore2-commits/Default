@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  {{> head}}
+  <title>Comenzi — Administrare {{shop.name}}</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="stylesheet" href="/assets/css/admin.css">
+</head>
+<body class="admin">
+  {{> icons}}
+  <a class="skip-link" href="#comenzi">Sari la comenzi</a>
+
+  <header class="admin-bar">
+    <div class="admin-wrap admin-bar__inner">
+      <div class="admin-bar__title">
+        <a class="admin-bar__brand" href="/">{{shop.name}}</a>
+        <h1>Comenzi</h1>
+      </div>
+      <div class="admin-bar__tools">
+        <p class="admin-bar__updated" id="updated" aria-live="off"></p>
+        <label class="admin-toggle"><input type="checkbox" id="auto" checked> Reîmprospătare automată</label>
+        <button class="btn btn--soft btn--sm" type="button" id="reload">Reîncarcă</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-wrap admin-main" id="continut">
+    <div class="notice" id="admin-alert" role="status" hidden>
+      <span id="admin-alert-text"></span>
+      <button type="button" class="link-btn" id="seen">Am văzut</button>
+    </div>
+    <div class="notice notice--error" id="admin-error" role="alert" hidden></div>
+
+    <section class="admin-toolbar" aria-label="Filtre">
+      <div class="admin-tabs" id="tabs" role="group" aria-label="Status"></div>
+      <div class="admin-filters">
+        <label class="search">
+          <span class="sr-only">Caută după număr, nume sau telefon</span>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>
+          <input type="search" id="q" placeholder="Număr, nume sau telefon" autocomplete="off">
+        </label>
+        <label class="select">
+          <span class="sr-only">Data livrării sau ridicării</span>
+          <select id="date">
+            <option value="all">Toate datele</option>
+            <option value="today">Azi</option>
+            <option value="tomorrow">Mâine</option>
+            <option value="week">Următoarele 7 zile</option>
+            <option value="past">Trecute</option>
+          </select>
+        </label>
+        <label class="select">
+          <span class="sr-only">Sortare</span>
+          <select id="sort">
+            <option value="date">Ordonate după data livrării</option>
+            <option value="new">Cele mai noi primele</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <p class="admin-count" id="count" aria-live="polite"></p>
+    <p class="sr-only" id="announce" role="status" aria-live="polite"></p>
+    <ul class="orders" id="comenzi" aria-busy="true"></ul>
+  </main>
+
+  <script type="module" src="/admin/admin.js"></script>
+</body>
+</html>

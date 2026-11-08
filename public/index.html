@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  {{> head}}
+  <title>{{shop.name}} — torturi și prăjituri artizanale, comandă online</title>
+  <meta name="description" content="{{shop.description}}">
+  <meta property="og:title" content="{{shop.name}} — {{shop.tagline}}">
+  <meta property="og:description" content="{{shop.description}}">
+  <script type="application/ld+json">{{{jsonLd}}}</script>
+</head>
+<body class="page-home">
+  {{> icons}}
+  {{> header}}
+
+  <main id="continut">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="eyebrow">Cofetărie artizanală · {{shop.city}}</p>
+          <h1 id="hero-title">Dulceața zilei, direct la ușa ta</h1>
+          <p class="lead">Torturi, prăjituri și tarte făcute de mână, din ingrediente de calitate. Alegi online, noi coacem proaspăt, iar tu ridici din cofetărie sau îți livrăm comanda.</p>
+          <div class="hero__cta">
+            <a class="btn btn--primary btn--lg" href="#produse">Descoperă meniul</a>
+            <a class="btn btn--ghost btn--lg" href="{{shop.cakesUrl}}">Comandă un tort</a>
+          </div>
+          <ul class="hero__points">
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Coapte în fiecare zi</li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Livrare în {{shop.city}}</li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-check"/></svg>Plată la primire</li>
+          </ul>
+        </div>
+        <div class="hero__art">
+          <img src="/art/hero.svg" alt="" width="640" height="560" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <section class="perks" aria-label="De ce să comanzi de la noi">
+      <div class="container perks__grid">
+        <article class="perk">
+          <svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>
+          <h2>Coapte în fiecare zi</h2>
+          <p>Prăjiturile se pregătesc proaspăt, în laboratorul nostru, în dimineața în care le primești.</p>
+        </article>
+        <article class="perk">
+          <svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-cake"/></svg>
+          <h2>Torturi personalizate</h2>
+          <p>Alegi gustul, mărimea și mesajul de pe tort. Pentru modele speciale, scrie-ne.</p>
+        </article>
+        <article class="perk">
+          <svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-truck"/></svg>
+          <h2>Livrare sau ridicare</h2>
+          <p>Livrăm în {{shop.deliveryArea}} — gratuit la comenzi de peste {{shop.freeFrom}}. Ridicarea din cofetărie este gratuită.</p>
+        </article>
+        <article class="perk">
+          <svg class="icon perk__icon" aria-hidden="true" focusable="false"><use href="#i-leaf"/></svg>
+          <h2>Plată simplă</h2>
+          <p>Plătești la primirea comenzii, cu numerar sau cu cardul. Fără cont, fără bătăi de cap.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="produse" class="catalog" aria-labelledby="catalog-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Meniul nostru</p>
+          <h2 id="catalog-title">Alege ce te îndulcește</h2>
+          <p>La fiecare produs vezi cât timp înainte trebuie comandat și ce alergeni conține.</p>
+        </header>
+
+        <div class="toolbar">
+          <div class="chips" role="group" aria-label="Categorii" id="category-chips"></div>
+          <div class="toolbar__tools">
+            <label class="search">
+              <span class="sr-only">Caută în meniu</span>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-search"/></svg>
+              <input type="search" id="search" placeholder="Caută… (ex. ciocolată)" autocomplete="off" enterkeyhint="search">
+            </label>
+            <label class="select">
+              <span class="sr-only">Sortează produsele</span>
+              <select id="sort">
+                <option value="recomandate">Recomandate</option>
+                <option value="pret-crescator">Preț: mic → mare</option>
+                <option value="pret-descrescator">Preț: mare → mic</option>
+                <option value="nume">Nume (A–Z)</option>
+              </select>
+            </label>
+          </div>
+        </div>
+
+        <p class="results-info" id="results-info" aria-live="polite"></p>
+        <div class="grid" id="product-grid" aria-busy="true">
+          <noscript><p class="notice">Pentru a comanda online ai nevoie de JavaScript activat. Ne poți suna oricând la <a href="tel:{{shop.phoneHref}}">{{shop.phone}}</a>.</p></noscript>
+        </div>
+        <div class="notice notice--error" id="catalog-error" role="alert" hidden>
+          <p>Nu am putut încărca meniul. Verifică conexiunea la internet și <button type="button" class="link-btn" id="catalog-retry">încearcă din nou</button>, sau sună-ne la <a href="tel:{{shop.phoneHref}}">{{shop.phone}}</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="comenzi-speciale" class="special" aria-labelledby="special-title">
+      <div class="container special__inner">
+        <div>
+          <p class="eyebrow">Comenzi speciale</p>
+          <h2 id="special-title">Nuntă, botez sau o aniversare mare?</h2>
+          <p>Pentru torturi cu model, candy bar sau comenzi mari, discutăm împreună: gustul, numărul de persoane și bugetul. Îți răspundem cu o ofertă personalizată, de obicei în aceeași zi.</p>
+        </div>
+        <div class="special__actions">
+          <a class="btn btn--primary" href="tel:{{shop.phoneHref}}"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg>Sună: {{shop.phone}}</a>
+          <a class="btn btn--ghost" href="mailto:{{shop.email}}?subject=Comand%C4%83%20special%C4%83"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Scrie-ne un email</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="despre" class="about" aria-labelledby="about-title">
+      <div class="container about__inner">
+        <div class="about__text">
+          <p class="eyebrow">Despre noi</p>
+          <h2 id="about-title">Dulciuri făcute cu răbdare</h2>
+          <p>La {{shop.name}} credem că o prăjitură bună nu are nevoie de multe artificii: ingrediente alese cu grijă, rețete încercate de multe ori și timp. De aceea coacem în loturi mici, în fiecare zi, și decorăm fiecare tort de mână.</p>
+          <p>Comanda ta o pregătim special pentru tine, iar dacă ai o alergie sau o preferință, spune-ne la observații — ne asigurăm că primești exact ce ai nevoie.</p>
+        </div>
+        <dl class="facts">
+          <div><dt>Coacem</dt><dd>zilnic, în loturi mici</dd></div>
+          <div><dt>Decorăm</dt><dd>fiecare tort de mână</dd></div>
+          <div><dt>Livrăm</dt><dd>în {{shop.deliveryArea}}</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="container contact__grid">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Te așteptăm la cofetărie</h2>
+          <ul class="contact__list">
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg><span>{{shop.address}}, {{shop.city}}<br><a href="{{shop.mapsUrl}}" target="_blank" rel="noopener noreferrer">Deschide în Google Maps</a></span></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-phone"/></svg><a href="tel:{{shop.phoneHref}}">{{shop.phone}}</a></li>
+            <li><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg><a href="mailto:{{shop.email}}">{{shop.email}}</a></li>
+          </ul>
+        </div>
+        <div class="contact__hours">
+          <h3>Program</h3>
+          <dl class="hours">{{{hoursHtml}}}</dl>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  {{> footer}}
+  {{> drawer}}
+  {{> toasts}}
+  <dialog id="product-dialog" class="modal" aria-labelledby="pd-title"></dialog>
+  <script type="module" src="/assets/js/shop.js"></script>
+</body>
+</html>

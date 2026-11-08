@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  {{> head}}
+  <title>Comanda ta — {{shop.name}}</title>
+  <meta name="robots" content="noindex">
+</head>
+<body class="page-thanks">
+  {{> icons}}
+  {{> header}}
+
+  <main id="continut" class="container thanks" tabindex="-1">
+    <article class="card thanks__card" id="thanks-card">
+      <div class="thanks__badge" id="thanks-badge" aria-hidden="true" hidden><svg class="icon" focusable="false"><use href="#i-check"/></svg></div>
+      <h1 id="thanks-title">Nu avem o comandă de afișat</h1>
+      <p class="lead" id="thanks-lead">Dacă tocmai ai trimis o comandă, ai primit numărul ei pe ecran. Dacă ai nelămuriri, ne găsești la <a href="tel:{{shop.phoneHref}}">{{shop.phone}}</a> sau <a href="mailto:{{shop.email}}">{{shop.email}}</a>.</p>
+
+      <div class="thanks__details" id="thanks-details" hidden>
+        <div class="thanks__number">
+          <span>Numărul comenzii</span>
+          <strong id="thanks-number"></strong>
+        </div>
+        <dl class="thanks__facts" id="thanks-facts"></dl>
+        <div id="thanks-lines"></div>
+        <dl class="totals" id="thanks-totals"></dl>
+        <div class="thanks__next">
+          <h2>Ce urmează?</h2>
+          <ol>
+            <li>Verificăm comanda și, dacă e nevoie, te sunăm pentru detalii.</li>
+            <li>Pregătim totul proaspăt pentru data și intervalul ales.</li>
+            <li>Plătești la primire. Dacă ceva se schimbă, sună-ne la <a href="tel:{{shop.phoneHref}}">{{shop.phone}}</a> și menționează numărul comenzii.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="thanks__actions">
+        <a class="btn btn--primary" href="/#produse">Înapoi la meniu</a>
+        <button class="btn btn--ghost" type="button" id="print-btn" hidden><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-printer"/></svg>Tipărește</button>
+      </div>
+    </article>
+  </main>
+
+  {{> footer}}
+  {{> toasts}}
+  <script type="module" src="/assets/js/thanks.js"></script>
+</body>
+</html>

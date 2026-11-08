@@ -1,0 +1,32 @@
+<footer class="site-footer">
+  <div class="container footer__grid">
+    <div class="footer__about">
+      <p class="footer__brand">{{shop.name}}</p>
+      <p>{{shop.tagline}}.</p>
+      <p class="footer__contact">
+        <a href="tel:{{shop.phoneHref}}">{{shop.phone}}</a><br>
+        <a href="mailto:{{shop.email}}">{{shop.email}}</a>
+      </p>
+    </div>
+    <nav aria-label="Comenzi">
+      <p class="footer__title">Comenzi</p>
+      <ul>
+        <li><a href="/#produse">Meniu</a></li>
+        <li><a href="{{shop.cakesUrl}}">Torturi</a></li>
+        <li><a href="/#comenzi-speciale">Comenzi speciale</a></li>
+        <li><a href="/comanda">Coșul tău</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Informații">
+      <p class="footer__title">Informații</p>
+      <ul>
+        <li><a href="/termeni">Termeni și condiții</a></li>
+        <li><a href="/confidentialitate">Politica de confidențialitate</a></li>
+        <li><a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">ANPC – soluționarea alternativă a litigiilor</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer__legal">
+    <p>© {{year}} {{shop.companyName}} · CUI {{shop.cui}} · {{shop.regCom}} · Sediu: {{shop.registeredOffice}}</p>
+  </div>
+</footer>

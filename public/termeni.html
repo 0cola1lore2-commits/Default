@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ro">
+<head>
+  {{> head}}
+  <title>Termeni și condiții — {{shop.name}}</title>
+  <meta name="description" content="Termenii și condițiile de comandă, livrare și ridicare pentru {{shop.name}}.">
+</head>
+<body class="page-legal">
+  {{> icons}}
+  {{> header}}
+  <main id="continut" class="container prose" tabindex="-1">
+    <h1>Termeni și condiții</h1>
+
+    <h2>1. Cine suntem</h2>
+    <p>Acest site este operat de <strong>{{shop.companyName}}</strong>, CUI {{shop.cui}}, înregistrată la Registrul Comerțului cu nr. {{shop.regCom}}, cu sediul social în {{shop.registeredOffice}}. Punctul nostru de lucru este la adresa {{shop.address}}, {{shop.city}}. Ne poți contacta la <a href="tel:{{shop.phoneHref}}">{{shop.phone}}</a> sau <a href="mailto:{{shop.email}}">{{shop.email}}</a>.</p>
+
+    <h2>2. Cum se plasează o comandă</h2>
+    <p>Comenzile se plasează prin acest site. După trimitere primești un număr de comandă. Echipa noastră verifică comanda și te poate contacta telefonic pentru confirmare sau pentru detalii. Comanda devine fermă în momentul în care ți-o confirmăm. Ne rezervăm dreptul de a refuza sau anula o comandă (de exemplu, dacă un produs nu mai este disponibil), caz în care te anunțăm cât mai repede.</p>
+
+    <h2>3. Prețuri și plată</h2>
+    <p>Prețurile sunt exprimate în lei (RON). {{shop.payment}} Taxa de livrare, dacă se aplică, este afișată înainte de trimiterea comenzii.</p>
+
+    <h2>4. Livrare și ridicare</h2>
+    <p>Livrăm în {{shop.deliveryArea}}. Taxa de livrare este {{shop.deliveryFee}}; livrarea este gratuită pentru comenzi de cel puțin {{shop.freeFrom}}, iar comanda minimă pentru livrare este {{shop.minOrder}}. La finalizarea comenzii alegi data și intervalul orar; la fiecare produs este indicat timpul minim de pregătire. Te rugăm să fii disponibil în intervalul ales. Dacă nu poți ajunge, anunță-ne cât mai devreme.</p>
+
+    <h2>5. Modificarea sau anularea comenzii</h2>
+    <p>Poți modifica sau anula o comandă contactându-ne cât mai repede, înainte de începerea pregătirii. Pentru produsele personalizate (de exemplu, torturi cu mesaj sau model special), modificările sunt posibile doar dacă nu am început lucrul.</p>
+
+    <h2>6. Dreptul de retragere</h2>
+    <p>Conform art. 16 din OUG nr. 34/2014, consumatorul nu beneficiază de dreptul de retragere din contractele la distanță pentru bunuri care se pot deteriora sau expira rapid (precum produsele de cofetărie) și pentru bunuri confecționate după specificațiile consumatorului sau personalizate în mod clar. Dacă primești un produs necorespunzător, te rugăm să ne contactezi în aceeași zi, de preferință cu o fotografie, iar noi analizăm situația și îți propunem o soluție.</p>
+
+    <h2>7. Alergeni</h2>
+    <p>La fiecare produs sunt indicați alergenii principali. Toate produsele sunt preparate în același laborator, unde se folosesc gluten, ouă, lapte, fructe cu coajă, soia și alte ingrediente, așa că nu putem garanta absența urmelor de alergeni. Dacă ai o alergie, te rugăm să ne scrii la observații sau să ne suni înainte de a comanda.</p>
+
+    <h2>8. Reclamații</h2>
+    <p>Ne poți scrie la <a href="mailto:{{shop.email}}">{{shop.email}}</a> sau ne poți suna la <a href="tel:{{shop.phoneHref}}">{{shop.phone}}</a>. Consumatorii pot apela și la entitățile de soluționare alternativă a litigiilor: <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener noreferrer">anpc.ro/ce-este-sal</a>.</p>
+
+    <h2>9. Legea aplicabilă</h2>
+    <p>Acești termeni sunt guvernați de legea română.</p>
+  </main>
+  {{> footer}}
+  {{> toasts}}
+  <script type="module" src="/assets/js/layout-only.js"></script>
+</body>
+</html>
