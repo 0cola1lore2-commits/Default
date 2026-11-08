@@ -1,0 +1,8 @@
+node_modules/
+.env
+*.log
+.DS_Store
+
+# Comenzile clienților (date personale) nu se pun în Git
+data/*
+!data/.gitkeep

@@ -1,0 +1,49 @@
+{
+  "name": "Cofetăria Vanilia",
+  "tagline": "Torturi și prăjituri artizanale, coapte în fiecare zi",
+  "description": "Comandă online torturi, prăjituri, tarte și macarons făcute de mână. Ridici din cofetărie sau livrăm la tine acasă.",
+  "orderPrefix": "CV",
+
+  "legal": {
+    "companyName": "[Denumirea firmei] S.R.L.",
+    "cui": "[CUI]",
+    "regCom": "[J00/0000/0000]",
+    "registeredOffice": "[Sediul social]"
+  },
+
+  "contact": {
+    "phone": "0700 000 000",
+    "email": "comenzi@vanilia.example",
+    "address": "Strada Dulciurilor nr. 7",
+    "city": "București",
+    "postalCode": "010101"
+  },
+
+  "hours": [
+    {
+      "label": "Luni – Vineri",
+      "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "20:00"
+    },
+    { "label": "Sâmbătă", "days": ["Saturday"], "opens": "09:00", "closes": "20:00" },
+    { "label": "Duminică", "days": ["Sunday"], "opens": "09:00", "closes": "18:00" }
+  ],
+
+  "delivery": {
+    "fee": 15,
+    "freeFrom": 200,
+    "minOrder": 80,
+    "area": "București și zonele limitrofe"
+  },
+
+  "schedule": {
+    "timezone": "Europe/Bucharest",
+    "slots": ["10:00-12:00", "12:00-14:00", "14:00-16:00", "16:00-18:00"],
+    "closedWeekdays": [],
+    "closedDates": ["2026-12-25", "2026-12-26", "2027-01-01"],
+    "maxAdvanceDays": 60
+  },
+
+  "payment": "Plătești la primirea comenzii (la livrare sau la ridicare), cu numerar sau cu cardul."
+}

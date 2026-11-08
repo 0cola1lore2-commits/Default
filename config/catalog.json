@@ -1,0 +1,515 @@
+{
+  "categories": [
+    { "id": "torturi", "name": "Torturi", "description": "Pentru aniversări și zile care merită sărbătorite" },
+    { "id": "prajituri", "name": "Prăjituri", "description": "Clasice și preferate, coapte zilnic" },
+    { "id": "tarte", "name": "Tarte", "description": "La felie sau întregi" },
+    { "id": "mici-delicii", "name": "Mici delicii", "description": "Macarons, brioșe, biscuiți și gogoși" },
+    { "id": "traditionale", "name": "Tradiționale", "description": "Cozonaci și dulciuri de sărbători" },
+    { "id": "platouri-cadouri", "name": "Platouri & cadouri", "description": "Pentru petreceri, birou sau o surpriză" }
+  ],
+
+  "products": [
+    {
+      "id": "tort-ciocolata-belgiana",
+      "category": "torturi",
+      "name": "Tort Ciocolată Belgiană",
+      "tagline": "Blat umed de cacao și ganache de ciocolată neagră.",
+      "description": "Trei straturi de blat pufos de cacao, înmuiate într-un sirop ușor și lipite cu cremă de ciocolată neagră. Deasupra, ganache lucios, bucle de ciocolată și zmeură proaspătă. Pentru iubitorii de ciocolată adevărată, nu prea dulce.",
+      "ingredients": "Făină, ouă, unt, zahăr, cacao, ciocolată neagră, smântână pentru frișcă, zmeură.",
+      "allergens": ["gluten", "oua", "lapte", "soia"],
+      "badges": ["Bestseller"],
+      "leadTimeHours": 48,
+      "maxQuantity": 5,
+      "customText": { "label": "Mesaj pe tort (opțional)", "maxLength": 40 },
+      "variants": [
+        { "id": "1kg", "name": "1 kg · 8 porții", "price": 175 },
+        { "id": "1-5kg", "name": "1,5 kg · 12 porții", "price": 255 },
+        { "id": "2kg", "name": "2 kg · 16 porții", "price": 330 }
+      ],
+      "art": { "kind": "cake", "theme": "peach", "palette": "chocolate", "style": "drip", "topping": "curls" }
+    },
+    {
+      "id": "tort-red-velvet",
+      "category": "torturi",
+      "name": "Tort Red Velvet",
+      "tagline": "Blat roșu catifelat și cremă fină de brânză cu vanilie.",
+      "description": "Blat moale, cu o nuanță intensă de roșu și un gust fin de cacao, alternat cu cremă de brânză proaspătă și vanilie. Se decorează simplu și elegant, cu firimituri de blat și zmeură.",
+      "ingredients": "Făină, ouă, unt, zahăr, zară, cacao, colorant alimentar, brânză cremoasă, smântână, vanilie, zmeură.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 48,
+      "maxQuantity": 5,
+      "customText": { "label": "Mesaj pe tort (opțional)", "maxLength": 40 },
+      "variants": [
+        { "id": "1kg", "name": "1 kg · 8 porții", "price": 185 },
+        { "id": "1-5kg", "name": "1,5 kg · 12 porții", "price": 270 },
+        { "id": "2kg", "name": "2 kg · 16 porții", "price": 350 }
+      ],
+      "art": { "kind": "cake", "theme": "rose", "palette": "redvelvet", "style": "drip", "topping": "crumbs" }
+    },
+    {
+      "id": "tort-fructe-de-padure",
+      "category": "torturi",
+      "name": "Tort cu Fructe de Pădure",
+      "tagline": "Vanilie, cremă ușoară de mascarpone și fructe de pădure.",
+      "description": "Un tort proaspăt și aerat: blat de vanilie, cremă de mascarpone, gem de fructe de pădure și fructe proaspete deasupra. Preferatul celor care nu vor ceva prea dulce.",
+      "ingredients": "Făină, ouă, zahăr, unt, mascarpone, smântână, vanilie, zmeură, afine, mure.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 48,
+      "maxQuantity": 5,
+      "customText": { "label": "Mesaj pe tort (opțional)", "maxLength": 40 },
+      "variants": [
+        { "id": "1kg", "name": "1 kg · 8 porții", "price": 180 },
+        { "id": "1-5kg", "name": "1,5 kg · 12 porții", "price": 265 },
+        { "id": "2kg", "name": "2 kg · 16 porții", "price": 345 }
+      ],
+      "art": { "kind": "cake", "theme": "lilac", "palette": "berry", "style": "pearls", "topping": "berries" }
+    },
+    {
+      "id": "tort-caramel-sarat",
+      "category": "torturi",
+      "name": "Tort Caramel Sărat",
+      "tagline": "Blat de vanilie, cremă de unt și caramel făcut în casă.",
+      "description": "Caramel fiert încet, cu un strop de sare, între straturi de blat pufos de vanilie. Deasupra curge caramel auriu, presărat cu fulgi de sare. Dulce-sărat, exact cum trebuie.",
+      "ingredients": "Făină, ouă, unt, zahăr, smântână, sare de mare, vanilie.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "badges": ["Nou"],
+      "leadTimeHours": 48,
+      "maxQuantity": 5,
+      "customText": { "label": "Mesaj pe tort (opțional)", "maxLength": 40 },
+      "variants": [
+        { "id": "1kg", "name": "1 kg · 8 porții", "price": 180 },
+        { "id": "1-5kg", "name": "1,5 kg · 12 porții", "price": 265 },
+        { "id": "2kg", "name": "2 kg · 16 porții", "price": 345 }
+      ],
+      "art": { "kind": "cake", "theme": "butter", "palette": "caramel", "style": "drip", "topping": "caramel" }
+    },
+    {
+      "id": "tort-fistic-zmeura",
+      "category": "torturi",
+      "name": "Tort Fistic & Zmeură",
+      "tagline": "Cremă fină de fistic și gem acrișor de zmeură.",
+      "description": "Blat fraged cu migdale, cremă mătăsoasă de fistic și un strat de gem de zmeură care taie dulceața. Decorat cu zmeură proaspătă și fistic zdrobit.",
+      "ingredients": "Făină, migdale, ouă, unt, zahăr, pastă de fistic, smântână, zmeură.",
+      "allergens": ["gluten", "oua", "lapte", "fructe-cu-coaja"],
+      "leadTimeHours": 48,
+      "maxQuantity": 5,
+      "customText": { "label": "Mesaj pe tort (opțional)", "maxLength": 40 },
+      "variants": [
+        { "id": "1kg", "name": "1 kg · 8 porții", "price": 215 },
+        { "id": "1-5kg", "name": "1,5 kg · 12 porții", "price": 315 },
+        { "id": "2kg", "name": "2 kg · 16 porții", "price": 410 }
+      ],
+      "art": { "kind": "cake", "theme": "mint", "palette": "pistachio", "style": "smooth", "topping": "pistachio" }
+    },
+    {
+      "id": "tort-dobos",
+      "category": "torturi",
+      "name": "Tort Dobos",
+      "tagline": "Foi subțiri, cremă de ciocolată și caramel crocant.",
+      "description": "Clasicul tort Dobos: foi subțiri de pandispan lipite cu cremă de ciocolată, acoperite cu o foaie de caramel auriu, tăiată în felii. Un deliciu care nu se demodează.",
+      "ingredients": "Făină, ouă, zahăr, unt, ciocolată, cacao, vanilie.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 48,
+      "maxQuantity": 5,
+      "customText": { "label": "Mesaj pe tort (opțional)", "maxLength": 40 },
+      "variants": [
+        { "id": "1kg", "name": "1 kg · 8 porții", "price": 170 },
+        { "id": "1-5kg", "name": "1,5 kg · 12 porții", "price": 250 },
+        { "id": "2kg", "name": "2 kg · 16 porții", "price": 325 }
+      ],
+      "art": { "kind": "cake", "theme": "cocoa", "palette": "dobos", "style": "naked", "topping": "wedges" }
+    },
+    {
+      "id": "tort-curcubeu",
+      "category": "torturi",
+      "name": "Tort Curcubeu",
+      "tagline": "Straturi colorate și cremă de vanilie, pentru petreceri vesele.",
+      "description": "Șase straturi colorate de blat de vanilie și cremă ușoară de unt, acoperite cu mărgele de zahăr. Surpriza apare la prima felie. Ideal pentru ziua de naștere a copiilor.",
+      "ingredients": "Făină, ouă, unt, zahăr, smântână, vanilie, coloranți alimentari, mărgele de zahăr.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "badges": ["Pentru copii"],
+      "leadTimeHours": 48,
+      "maxQuantity": 5,
+      "customText": { "label": "Mesaj pe tort (opțional)", "maxLength": 40 },
+      "variants": [
+        { "id": "1kg", "name": "1 kg · 8 porții", "price": 175 },
+        { "id": "1-5kg", "name": "1,5 kg · 12 porții", "price": 255 },
+        { "id": "2kg", "name": "2 kg · 16 porții", "price": 335 }
+      ],
+      "art": { "kind": "cake", "theme": "sky", "palette": "rainbow", "style": "naked", "topping": "sprinkles" }
+    },
+
+    {
+      "id": "amandina",
+      "category": "prajituri",
+      "name": "Amandină",
+      "tagline": "Blat de cacao, cremă de ciocolată și glazură lucioasă.",
+      "description": "Prăjitura copilăriei, făcută după rețeta clasică: blat pufos de cacao, cremă fină de ciocolată și glazură lucioasă.",
+      "ingredients": "Făină, ouă, unt, zahăr, cacao, ciocolată, smântână.",
+      "allergens": ["gluten", "oua", "lapte", "soia"],
+      "leadTimeHours": 6,
+      "maxQuantity": 60,
+      "variants": [{ "id": "bucata", "name": "1 bucată", "price": 14 }],
+      "art": { "kind": "slice", "theme": "cocoa", "preset": "amandina" }
+    },
+    {
+      "id": "cremsnit",
+      "category": "prajituri",
+      "name": "Cremșnit",
+      "tagline": "Foietaj crocant, cremă de vanilie și zahăr pudră.",
+      "description": "Foi de foietaj coapte până devin aurii și crocante, cu cremă de vanilie fiartă pe loc și zahăr pudră deasupra.",
+      "ingredients": "Făină, unt, ouă, lapte, zahăr, vanilie, amidon.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 6,
+      "maxQuantity": 60,
+      "variants": [{ "id": "bucata", "name": "1 bucată", "price": 13 }],
+      "art": { "kind": "slice", "theme": "butter", "preset": "cremsnit" }
+    },
+    {
+      "id": "ecler-vanilie",
+      "category": "prajituri",
+      "name": "Ecler cu vanilie",
+      "tagline": "Choux pufos, cremă de vanilie și glazură albă.",
+      "description": "Aluat choux copt la perfecție, umplut cu cremă de vanilie și acoperit cu glazură albă.",
+      "ingredients": "Făină, unt, ouă, lapte, zahăr, vanilie, smântână.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 6,
+      "maxQuantity": 60,
+      "variants": [{ "id": "bucata", "name": "1 bucată", "price": 14 }],
+      "art": { "kind": "eclair", "theme": "rose", "flavor": "vanilla" }
+    },
+    {
+      "id": "ecler-ciocolata",
+      "category": "prajituri",
+      "name": "Ecler cu ciocolată",
+      "tagline": "Cremă de ciocolată și glazură neagră lucioasă.",
+      "description": "Aluat choux copt la perfecție, umplut cu cremă de ciocolată și acoperit cu o glazură neagră lucioasă.",
+      "ingredients": "Făină, unt, ouă, lapte, zahăr, ciocolată, cacao.",
+      "allergens": ["gluten", "oua", "lapte", "soia"],
+      "leadTimeHours": 6,
+      "maxQuantity": 60,
+      "variants": [{ "id": "bucata", "name": "1 bucată", "price": 14 }],
+      "art": { "kind": "eclair", "theme": "cocoa", "flavor": "chocolate" }
+    },
+    {
+      "id": "tiramisu",
+      "category": "prajituri",
+      "name": "Tiramisu",
+      "tagline": "Mascarpone, espresso și cacao.",
+      "description": "Pișcoturi înmuiate în espresso, cremă ușoară de mascarpone și cacao presărată deasupra. Se servește rece.",
+      "ingredients": "Mascarpone, pișcoturi, ouă, zahăr, cafea espresso, cacao.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 6,
+      "maxQuantity": 60,
+      "variants": [{ "id": "portie", "name": "1 porție", "price": 18 }],
+      "art": { "kind": "slice", "theme": "peach", "preset": "tiramisu" }
+    },
+    {
+      "id": "cheesecake-fructe-de-padure",
+      "category": "prajituri",
+      "name": "Cheesecake cu fructe de pădure",
+      "tagline": "Cremă fină de brânză pe blat de biscuiți, cu sos de fructe.",
+      "description": "Copt lent, la foc mic, ca să rămână cremos. Se servește cu sos de fructe de pădure și fructe proaspete.",
+      "ingredients": "Brânză cremoasă, smântână, ouă, zahăr, biscuiți, unt, fructe de pădure.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 6,
+      "maxQuantity": 60,
+      "variants": [{ "id": "felie", "name": "1 felie", "price": 19 }],
+      "art": { "kind": "slice", "theme": "lilac", "preset": "cheesecake" }
+    },
+    {
+      "id": "savarina",
+      "category": "prajituri",
+      "name": "Savarină cu frișcă",
+      "tagline": "Pufoasă, îmbibată în sirop, cu frișcă și vișină.",
+      "description": "Aluat pufos de drojdie, îmbibat în sirop aromat, cu frișcă proaspătă și o vișină deasupra.",
+      "ingredients": "Făină, ouă, lapte, unt, zahăr, drojdie, smântână pentru frișcă, vișine.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 6,
+      "maxQuantity": 60,
+      "variants": [{ "id": "bucata", "name": "1 bucată", "price": 15 }],
+      "art": { "kind": "cupcake", "theme": "butter", "variant": "savarin" }
+    },
+    {
+      "id": "mille-feuille",
+      "category": "prajituri",
+      "name": "Mille-feuille (Napoleon)",
+      "tagline": "Foi fragede de foietaj și cremă diplomat.",
+      "description": "Foietaj subțire și crocant, cremă diplomat cu vanilie și o glazură fină cu model de pană, ca la cofetăriile franceze.",
+      "ingredients": "Făină, unt, ouă, lapte, zahăr, smântână, vanilie, ciocolată.",
+      "allergens": ["gluten", "oua", "lapte", "soia"],
+      "leadTimeHours": 6,
+      "maxQuantity": 60,
+      "variants": [{ "id": "bucata", "name": "1 bucată", "price": 17 }],
+      "art": { "kind": "slice", "theme": "sky", "preset": "millefeuille" }
+    },
+    {
+      "id": "profiterol",
+      "category": "prajituri",
+      "name": "Profiterol",
+      "tagline": "Choux mici, cremă de vanilie și sos de ciocolată.",
+      "description": "Bile mici de choux umplute cu cremă de vanilie, turnate cu sos cald de ciocolată neagră. Porția este pentru o persoană, cutia — pentru o masă în doi, în trei sau mai mulți.",
+      "ingredients": "Făină, unt, ouă, lapte, zahăr, vanilie, ciocolată neagră, smântână.",
+      "allergens": ["gluten", "oua", "lapte", "soia"],
+      "leadTimeHours": 6,
+      "maxQuantity": 30,
+      "variants": [
+        { "id": "portie", "name": "Porție · 4 bucăți", "price": 18 },
+        { "id": "cutie", "name": "Cutie · 12 bucăți", "price": 48, "leadTimeHours": 24 }
+      ],
+      "art": { "kind": "profiterol", "theme": "cocoa" }
+    },
+
+    {
+      "id": "tarta-lamaie-bezea",
+      "category": "tarte",
+      "name": "Tartă cu lămâie și bezea",
+      "tagline": "Cremă de lămâie acrișoară sub o bezea pufoasă.",
+      "description": "Blat fraged de unt, cremă intensă de lămâie și bezea italiană, rumenită cu grijă. Acrișoară, dulce și aerată în același timp.",
+      "ingredients": "Făină, unt, zahăr, ouă, lămâi, albușuri.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 24,
+      "maxQuantity": 20,
+      "variants": [
+        { "id": "felie", "name": "1 felie", "price": 17, "leadTimeHours": 6 },
+        { "id": "intreaga", "name": "Întreagă · 8 porții", "price": 125 }
+      ],
+      "art": { "kind": "tart", "theme": "butter", "variant": "lemon" }
+    },
+    {
+      "id": "tarta-fructe-de-padure",
+      "category": "tarte",
+      "name": "Tartă cu fructe de pădure",
+      "tagline": "Cremă de vanilie și fructe de pădure proaspete.",
+      "description": "Blat fraged, cremă de vanilie și un mozaic de fructe de pădure proaspete, lucioase de la glazura ușoară.",
+      "ingredients": "Făină, unt, zahăr, ouă, lapte, vanilie, zmeură, afine, mure.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 24,
+      "maxQuantity": 20,
+      "variants": [
+        { "id": "felie", "name": "1 felie", "price": 18, "leadTimeHours": 6 },
+        { "id": "intreaga", "name": "Întreagă · 8 porții", "price": 135 }
+      ],
+      "art": { "kind": "tart", "theme": "rose", "variant": "berries" }
+    },
+    {
+      "id": "tarta-ciocolata-caramel",
+      "category": "tarte",
+      "name": "Tartă cu ciocolată și caramel",
+      "tagline": "Ganache de ciocolată neagră și caramel sărat.",
+      "description": "Blat de cacao, strat subțire de caramel sărat și ganache de ciocolată neagră, presărată cu fulgi de sare.",
+      "ingredients": "Făină, unt, zahăr, ouă, cacao, ciocolată neagră, smântână, sare de mare.",
+      "allergens": ["gluten", "oua", "lapte", "soia"],
+      "leadTimeHours": 24,
+      "maxQuantity": 20,
+      "variants": [
+        { "id": "felie", "name": "1 felie", "price": 18, "leadTimeHours": 6 },
+        { "id": "intreaga", "name": "Întreagă · 8 porții", "price": 135 }
+      ],
+      "art": { "kind": "tart", "theme": "cocoa", "variant": "chocolate" }
+    },
+    {
+      "id": "tarte-tatin-mere",
+      "category": "tarte",
+      "name": "Tarte Tatin cu mere",
+      "tagline": "Mere caramelizate pe un aluat fraged, cu scorțișoară.",
+      "description": "Mere coapte încet în caramel de unt, răsturnate pe un aluat fraged. Se potrivește de minune cu o cană de ceai.",
+      "ingredients": "Mere, unt, zahăr, făină, scorțișoară.",
+      "allergens": ["gluten", "lapte"],
+      "leadTimeHours": 24,
+      "maxQuantity": 20,
+      "variants": [
+        { "id": "felie", "name": "1 felie", "price": 16, "leadTimeHours": 6 },
+        { "id": "intreaga", "name": "Întreagă · 8 porții", "price": 115 }
+      ],
+      "art": { "kind": "tart", "theme": "peach", "variant": "apple" }
+    },
+
+    {
+      "id": "macarons-asortati",
+      "category": "mici-delicii",
+      "name": "Macarons asortați",
+      "tagline": "Șase arome, coji crocante și umplutură fină.",
+      "description": "Macarons făcuți cu făină de migdale, cu coajă subțire și crocantă și umplutură cremoasă. Cutia conține un mix de arome: vanilie, fistic, zmeură, ciocolată, caramel sărat și lămâie. Un cadou mic și elegant.",
+      "ingredients": "Făină de migdale, albușuri, zahăr, unt, ciocolată albă, fistic, zmeură, lămâie.",
+      "allergens": ["oua", "lapte", "fructe-cu-coaja"],
+      "badges": ["Cadou"],
+      "leadTimeHours": 24,
+      "maxQuantity": 20,
+      "variants": [
+        { "id": "6", "name": "Cutie · 6 buc.", "price": 42 },
+        { "id": "12", "name": "Cutie · 12 buc.", "price": 80 },
+        { "id": "24", "name": "Cutie · 24 buc.", "price": 150 }
+      ],
+      "art": { "kind": "macarons", "theme": "lilac" }
+    },
+    {
+      "id": "cupcakes-vanilie",
+      "category": "mici-delicii",
+      "name": "Cupcakes cu vanilie",
+      "tagline": "Blat moale și cremă de unt cu vanilie, decorate de mână.",
+      "description": "Brioșe moi de vanilie, cu un vârf generos de cremă de unt și o decorație diferită pentru fiecare. Se potrivesc la orice petrecere.",
+      "ingredients": "Făină, ouă, unt, zahăr, lapte, vanilie, vișine confiate.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 12,
+      "maxQuantity": 30,
+      "variants": [
+        { "id": "4", "name": "Set · 4 buc.", "price": 56 },
+        { "id": "6", "name": "Set · 6 buc.", "price": 80 }
+      ],
+      "art": { "kind": "cupcake", "theme": "rose", "variant": "vanilla" }
+    },
+    {
+      "id": "briose-afine",
+      "category": "mici-delicii",
+      "name": "Brioșe cu afine",
+      "tagline": "Pufoase, cu afine întregi și crustă de zahăr.",
+      "description": "Brioșe înalte și pufoase, pline de afine, cu o crustă fină de zahăr deasupra. Cele mai bune când sunt încă puțin calde.",
+      "ingredients": "Făină, ouă, unt, zahăr, lapte, afine.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 12,
+      "maxQuantity": 30,
+      "variants": [
+        { "id": "4", "name": "Set · 4 buc.", "price": 44 },
+        { "id": "8", "name": "Set · 8 buc.", "price": 84 }
+      ],
+      "art": { "kind": "cupcake", "theme": "lilac", "variant": "muffin" }
+    },
+    {
+      "id": "cookies-ciocolata",
+      "category": "mici-delicii",
+      "name": "Cookies cu ciocolată",
+      "tagline": "Crocanți la margine, moi în mijloc, plini de ciocolată.",
+      "description": "Biscuiți mari, copți până la auriu, cu bucăți generoase de ciocolată neagră și un strop de sare deasupra.",
+      "ingredients": "Făină, unt, zahăr brun, ouă, ciocolată neagră, sare.",
+      "allergens": ["gluten", "oua", "lapte", "soia"],
+      "leadTimeHours": 12,
+      "maxQuantity": 30,
+      "variants": [
+        { "id": "4", "name": "Set · 4 buc.", "price": 36 },
+        { "id": "8", "name": "Set · 8 buc.", "price": 68 }
+      ],
+      "art": { "kind": "cookie", "theme": "butter", "variant": "chocolate-chip" }
+    },
+    {
+      "id": "brownie-nuci",
+      "category": "mici-delicii",
+      "name": "Brownie cu nuci",
+      "tagline": "Dens, cu ciocolată neagră și nuci crocante.",
+      "description": "Brownie umed și dens, cu ciocolată neagră, crustă fină crăpată deasupra și nuci crocante în interior.",
+      "ingredients": "Ciocolată neagră, unt, ouă, zahăr, făină, nuci.",
+      "allergens": ["gluten", "oua", "lapte", "fructe-cu-coaja", "soia"],
+      "leadTimeHours": 12,
+      "maxQuantity": 40,
+      "variants": [
+        { "id": "bucata", "name": "1 bucată", "price": 13 },
+        { "id": "cutie-6", "name": "Cutie · 6 buc.", "price": 72 }
+      ],
+      "art": { "kind": "slice", "theme": "cocoa", "preset": "brownie" }
+    },
+    {
+      "id": "gogosi-pufoase",
+      "category": "mici-delicii",
+      "name": "Gogoși pufoase",
+      "tagline": "Prăjite proaspăt, umplute cu dulceață și tăvălite în zahăr pudră.",
+      "description": "Gogoși moi și aerate, prăjite în dimineața livrării, umplute cu dulceață de caise și tăvălite în zahăr pudră. Se mănâncă imediat, cât sunt calde.",
+      "ingredients": "Făină, lapte, ouă, drojdie, zahăr, ulei, dulceață de caise.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "leadTimeHours": 12,
+      "maxQuantity": 20,
+      "variants": [
+        { "id": "6", "name": "Set · 6 buc.", "price": 36 },
+        { "id": "12", "name": "Set · 12 buc.", "price": 68 }
+      ],
+      "art": { "kind": "berliner", "theme": "peach" }
+    },
+
+    {
+      "id": "cozonac-nuca",
+      "category": "traditionale",
+      "name": "Cozonac cu nucă",
+      "tagline": "Aluat pufos și miez bogat de nucă.",
+      "description": "Cozonac împletit cu răbdare: aluat pufos, aromat cu lămâie și vanilie, și un miez generos de nucă. Rămâne moale zile la rând.",
+      "ingredients": "Făină, lapte, ouă, unt, zahăr, drojdie, nuci, lămâie, vanilie.",
+      "allergens": ["gluten", "oua", "lapte", "fructe-cu-coaja"],
+      "badges": ["Tradițional"],
+      "leadTimeHours": 24,
+      "maxQuantity": 20,
+      "variants": [
+        { "id": "700g", "name": "700 g", "price": 55 },
+        { "id": "1kg", "name": "1 kg", "price": 78 }
+      ],
+      "art": { "kind": "loaf", "theme": "butter", "filling": "walnut" }
+    },
+    {
+      "id": "cozonac-rahat-cacao",
+      "category": "traditionale",
+      "name": "Cozonac cu rahat și cacao",
+      "tagline": "Miez de cacao cu bucățele de rahat.",
+      "description": "Aluat pufos de cozonac, cu un miez bogat de cacao și bucățele de rahat care se topesc la coacere. Un clasic pe masa de sărbători.",
+      "ingredients": "Făină, lapte, ouă, unt, zahăr, drojdie, cacao, rahat, rom (esență).",
+      "allergens": ["gluten", "oua", "lapte"],
+      "badges": ["Tradițional"],
+      "leadTimeHours": 24,
+      "maxQuantity": 20,
+      "variants": [
+        { "id": "700g", "name": "700 g", "price": 58 },
+        { "id": "1kg", "name": "1 kg", "price": 82 }
+      ],
+      "art": { "kind": "loaf", "theme": "cocoa", "filling": "cocoa" }
+    },
+    {
+      "id": "turta-dulce",
+      "category": "traditionale",
+      "name": "Turtă dulce glazurată",
+      "tagline": "Figurine cu miere și scorțișoară, glazurate de mână.",
+      "description": "Figurine de turtă dulce cu miere, scorțișoară și ghimbir, decorate cu glazură albă. Frumoase în brad, pe masă sau într-un coș-cadou.",
+      "ingredients": "Făină, miere, zahăr, unt, ouă, scorțișoară, ghimbir, cuișoare.",
+      "allergens": ["gluten", "oua", "lapte"],
+      "badges": ["De sezon"],
+      "leadTimeHours": 24,
+      "maxQuantity": 20,
+      "variants": [
+        { "id": "6", "name": "Set · 6 buc.", "price": 54 },
+        { "id": "12", "name": "Set · 12 buc.", "price": 100 }
+      ],
+      "art": { "kind": "cookie", "theme": "sky", "variant": "gingerbread" }
+    },
+
+    {
+      "id": "platou-mini-prajituri",
+      "category": "platouri-cadouri",
+      "name": "Platou mini-prăjituri",
+      "tagline": "Selecție de mini-prăjituri pentru petreceri, birou sau cadou.",
+      "description": "Un platou colorat, cu mini-prăjituri asortate: mini-eclere, tartelete cu fructe, cuburi de ciocolată, macarons și altele. Alegem noi combinația în funcție de sezon; dacă ai preferințe sau alergii, scrie-ne la observații.",
+      "ingredients": "Variază în funcție de selecție; cere lista completă la confirmarea comenzii.",
+      "allergens": ["gluten", "oua", "lapte", "soia", "fructe-cu-coaja"],
+      "leadTimeHours": 48,
+      "maxQuantity": 5,
+      "variants": [
+        { "id": "24", "name": "24 de bucăți", "price": 190 },
+        { "id": "36", "name": "36 de bucăți", "price": 280 },
+        { "id": "48", "name": "48 de bucăți", "price": 360 }
+      ],
+      "art": { "kind": "platter", "theme": "peach" }
+    },
+    {
+      "id": "cutie-cadou-vanilia",
+      "category": "platouri-cadouri",
+      "name": "Cutie cadou Vanilia",
+      "tagline": "Prăjituri alese de noi, într-o cutie cu fundă.",
+      "description": "Un mix de prăjituri alese de noi, aranjate într-o cutie elegantă, legată cu fundă. Poți adăuga un mesaj, pe care îl scriem pe o felicitare.",
+      "ingredients": "Variază în funcție de selecție; cere lista completă la confirmarea comenzii.",
+      "allergens": ["gluten", "oua", "lapte", "soia", "fructe-cu-coaja"],
+      "badges": ["Cadou"],
+      "leadTimeHours": 24,
+      "maxQuantity": 10,
+      "customText": { "label": "Mesaj pe felicitare (opțional)", "maxLength": 80 },
+      "variants": [
+        { "id": "6", "name": "Cutie · 6 prăjituri", "price": 95 },
+        { "id": "9", "name": "Cutie · 9 prăjituri", "price": 138 }
+      ],
+      "art": { "kind": "giftbox", "theme": "rose" }
+    }
+  ]
+}
